@@ -11,7 +11,7 @@ module.exports = (robot) ->
     onTick: ->
       publicApi.lastPrice('btc_jpy')
         .then (res) ->
-          robot.send {room: 'Twitter'}, "1 BTC = #{res.last_price} JPY #{moment().format('MMMM Do YYYY, h:mm:ss a')}"
+          robot.send {room: 'Twitter'}, "1 BTC = #{res.last_price} JPY"
         .catch (e) ->
           robot.send {room: 'Twitter'}, "ERROR: #{e}"
   )
