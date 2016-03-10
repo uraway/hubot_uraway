@@ -28,14 +28,14 @@ module.exports = (robot) ->
     btc = res.match[1]
     publicApi.lastPrice('btc_jpy')
       .then (response) ->
-        jpy = btc/response.last_price
+        jpy = btc*response.last_price
         res.reply "#{btc} BTC = #{jpy} JPY"
 
   robot.respond /(.*) JPY/i, (res) ->
     jpy = res.match[1]
     publicApi.lastPrice('btc_jpy')
       .then (response) ->
-        btc = jpy*response.last_price
+        btc = jpy/response.last_price
         res.reply "#{jpy} JPY = #{btc} BTC"
 
   # robot.hear /badger/i, (res) ->
