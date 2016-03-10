@@ -18,7 +18,6 @@
     "hubot-rules": "^0.1.1",
     "hubot-scripts": "^2.16.2",
     "hubot-shipit": "^0.2.0",
-    "hubot-twitter": "^2.1.1",
     "hubot-twitter-userstream": "0.0.3",
     "moment": "^2.12.0",
     "time": "^0.11.0",
