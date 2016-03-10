@@ -30,6 +30,8 @@ module.exports = (robot) ->
       .then (response) ->
         jpy = btc*response.last_price
         res.reply "#{btc} BTC = #{jpy} JPY"
+      .catch (e) ->
+        res.reply "ERROR: #{e}"
 
   robot.respond /(.*) JPY/i, (res) ->
     jpy = res.match[1]
@@ -37,7 +39,8 @@ module.exports = (robot) ->
       .then (response) ->
         btc = jpy/response.last_price
         res.reply "#{jpy} JPY = #{btc} BTC"
-
+      .catch (e) ->
+        res.reply "ERROR: #{e}"
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
