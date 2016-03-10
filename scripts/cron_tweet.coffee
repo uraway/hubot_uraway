@@ -8,6 +8,11 @@ module.exports = (robot) ->
         start:    true
         timeZone: "Asia/Tokyo"
         onTick: ->
+            d = new Date
+            min = d.getMinutes()
+            sec = d.getSeconds()
+            message = "#{sec}secなう！"
+            robot.send {room: 'Twitter'}, "#{sec}秒なう！"
           api.lastPrice('bit_jpy').then(res) ->
             robot.send {room: 'Twitter'}, "last price: #{res}"
     )
