@@ -26,10 +26,12 @@ module.exports = (robot) ->
     msg.send "頑張って"
 
   robot.respond /(.*) btc/i, (res) ->
-    res.reply "#{res.match[1] btc?}"
+    btc = res.match[1]
+    res.reply "#{btc} btc?"
 
   robot.respond /(.*) jpy/i, (res) ->
-    res.reply "#{res.match[1] jpy?}"
+    jpy = res.match[1]
+    res.reply "#{jpy} jpy?"
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
