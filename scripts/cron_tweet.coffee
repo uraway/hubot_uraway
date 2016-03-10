@@ -8,7 +8,6 @@ module.exports = (robot) ->
         start:    true
         timeZone: "Asia/Tokyo"
         onTick: ->
-          api.lastPrice('bit_jpy').then(res => {
+          api.lastPrice('bit_jpy').then(res) ->
             robot.send {room: 'Twitter'}, "last price: #{res}"
-          })
     )
