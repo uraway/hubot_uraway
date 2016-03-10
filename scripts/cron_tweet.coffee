@@ -10,5 +10,5 @@ module.exports = (robot) ->
             min = d.getMinutes()
             sec = d.getSeconds()
             message = "#{sec}secなう！"
-            robot.send {user:{user:'XXXXX'},screen_name:'XXXXX', room: 'Twitter'}, "#{sec}秒なう！"
+            robot.send {user:{user:'uraway_'},screen_name:'uraway_', room: 'Twitter'}, "#{sec}秒なう！"
     )
