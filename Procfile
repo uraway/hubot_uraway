@@ -1,1 +1,1 @@
-web: bin/hubot -a twitter -n hubot_uraway
+web: bin/hubot -a twitter-userstream
