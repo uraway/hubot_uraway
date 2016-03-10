@@ -1,4 +1,5 @@
 zaif = require('zaif.jp')
+publicApi = zaif.PublicApi
 moment = require('moment')
 # Description:
 #   Example scripts for you to examine and try out.
@@ -12,26 +13,30 @@ moment = require('moment')
 
 module.exports = (robot) ->
 
+  # リフォローする
   robot.on 'followed', (event) ->
     robot.logger.info "followed #{event.user.name}!"
     robot.adapter.join event.user
-
-  robot.respond /I am (.*)/i, (msg) ->
-    msg.send "Hi, #{msg.match[1]}"
 
   robot.respond /おみくじ/i, (msg) ->
     msg.send msg.random ["大吉", "中吉", "小吉", "凶"]
 
   robot.hear /疲れた/i, (msg) ->
-    msg.send "頑張って"
+    msg.send "頑張って!"
 
   robot.respond /(.*) BTC/i, (res) ->
     btc = res.match[1]
-    res.reply "#{btc} BTC?"
+    publicApi.lastPrice('btc_jpy').then (res) ->
+      lastPrice = res.last_price
+    jpy = btc/lastPrice
+    res.reply "#{btc} BTC = #{jpy} JPY"
 
   robot.respond /(.*) JPY/i, (res) ->
     jpy = res.match[1]
-    res.reply "#{jpy} JPY?"
+    publicApi.lastPrice('btc_jpy').then (res) ->
+      lastPrice = res.last_price
+    btc = jpy*lastPrice
+    res.reply "#{jpy} JPY = #{btc} BTC"
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
