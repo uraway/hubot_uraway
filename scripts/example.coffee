@@ -16,6 +16,15 @@ module.exports = (robot) ->
   robot.respond /かきくけこ/i, (msg) ->
     msg.send "こんばんわ！"
 
+  robot.respond /start job/i, (msg) ->
+    msg.send "Start job.."
+    job.start()
+
+  robot.respond /stop job/i, (msg) ->
+    msg.send "Stop job.."
+    job.stop()
+
+
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #

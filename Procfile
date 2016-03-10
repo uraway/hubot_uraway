@@ -1,1 +1,1 @@
-web: bin/hubot -a twitter -n HogeTweetBot
+web: bin/hubot -a twitter -n hubot
