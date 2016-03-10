@@ -1,1 +1,1 @@
-web: node_modules/.bin/hubot --name "hubot_uraway" "$@"
+web: bin/hubot -a twitter-userstream
