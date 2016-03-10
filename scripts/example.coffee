@@ -25,13 +25,13 @@ module.exports = (robot) ->
   robot.hear /疲れた/i, (msg) ->
     msg.send "頑張って"
 
-  robot.respond /(.*) btc/i, (res) ->
+  robot.respond /(.*) BTC/i, (res) ->
     btc = res.match[1]
-    res.reply "#{btc} btc?"
+    res.reply "#{btc} BTC?"
 
-  robot.respond /(.*) jpy/i, (res) ->
+  robot.respond /(.*) JPY/i, (res) ->
     jpy = res.match[1]
-    res.reply "#{jpy} jpy?"
+    res.reply "#{jpy} JPY?"
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
