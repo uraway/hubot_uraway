@@ -5,6 +5,7 @@
   "author": "uraway <masato.u0107@gmail.com>",
   "description": "A simple helpful robot for your Company",
   "dependencies": {
+    "cron": "^1.0.5",
     "hubot": "^2.18.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.2.6",
@@ -18,8 +19,8 @@
     "hubot-scripts": "^2.16.2",
     "hubot-shipit": "^0.2.0",
     "hubot-twitter": "^2.1.1",
-    "cron": "^1.0.5",
-    "time": "^0.11.0"
+    "time": "^0.11.0",
+    "zaif.jp": "^0.1.4"
   },
   "engines": {
     "node": "0.10.x"
