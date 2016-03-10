@@ -13,9 +13,5 @@ module.exports = (robot) ->
         sec = d.getSeconds()
         message = "#{sec}secなう！"
         robot.send {user:{user:'uraway'},screen_name:'XXXXX', room: 'Twitter'}, "#{sec}秒なう！"
-        api.lastPrice('bit_jpy')
-          .then(res) ->
-            robot.send {room: 'Twitter'}, "last price: #{res}"
-          .catch(e) ->
-            robot.send {room: 'Twitter'}, "ERROR: #{e}"
+
     )
