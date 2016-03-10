@@ -1,3 +1,5 @@
+zaif = require('zaif.jp')
+moment = require('moment')
 # Description:
 #   Example scripts for you to examine and try out.
 #
@@ -10,11 +12,9 @@
 
 module.exports = (robot) ->
 
-  robot.respond /あいうえお/i, (msg) ->
-    msg.send "こんにちわ！"
-
-  robot.respond /かきくけこ/i, (msg) ->
-    msg.send "こんばんわ！"
+  robot.on 'followed', (event) ->
+    robot.logger.info "followed #{event.user.name}!"
+    robot.adapter.join event.user
 
   robot.respond /I am (.*)/i, (msg) ->
     msg.send "Hi, #{msg.match[1]}"
@@ -24,6 +24,12 @@ module.exports = (robot) ->
 
   robot.hear /疲れた/i, (msg) ->
     msg.send "頑張って"
+
+  robot.respond /(.*) btc/i, (res) ->
+    res.reply "#{res.match[1] btc?}"
+
+  robot.respond /(.*) jpy/i, (res) ->
+    res.reply "#{res.match[1] jpy?}"
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
