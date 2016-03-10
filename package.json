@@ -19,6 +19,7 @@
     "hubot-scripts": "^2.16.2",
     "hubot-shipit": "^0.2.0",
     "hubot-twitter": "^2.1.1",
+    "moment": "^2.12.0",
     "time": "^0.11.0",
     "zaif.jp": "^0.1.4"
   },

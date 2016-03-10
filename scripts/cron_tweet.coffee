@@ -1,17 +1,23 @@
 cronJob = require('cron').CronJob
 zaif = require('zaif.jp')
 api = zaif.PublicApi
+moment = require('moment')
 
 module.exports = (robot) ->
-  cronjob = new cronJob(
-    cronTime: "00,10,20,30,40,50 * * * * *"
-    start:    true
-    timeZone: "Asia/Tokyo"
-      onTick: ->
-        d = new Date
-        min = d.getMinutes()
-        sec = d.getSeconds()
-        message = "#{sec}secなう！"
-        robot.send {user:{user:'uraway'},screen_name:'XXXXX', room: 'Twitter'}, "#{sec}秒なう！"
+    cronjob = new cronJob(
+        cronTime: "0 30 * * * *"
+        start:    true
+        timeZone: "Asia/Tokyo"
+        onTick: ->
+            d = new Date
+            year = d.getFullYear()
+            date = d.getDate()
+            hour = d.
+            min = d.getMinutes()
 
+            api.lastPrice('btc_jpy')
+              .then (res) ->
+                robot.send {room: 'Twitter'}, "#{moment().calendar()} last price: #{res.last_price}"
+              .catch (e) ->
+                robot.send {room: 'Twitter'}, "ERROR: #{e}"
     )
