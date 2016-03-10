@@ -1,12 +1,14 @@
-CronJob = require('cron').CronJob
+cronJob = require('cron').CronJob
 
-taskA = ->
-  console.log 'task A'
-  robot.send 'task A'
-
-job = new CronJob(
-  cronTime: "00 30 * * * *"
-  onTick: ->
-    taskA()
-  start: false
-)
+module.exports = (robot) ->
+    cronjob = new cronJob(
+        cronTime: "00,10,20,30,40,50 * * * * *"
+        start:    true
+        timeZone: "Asia/Tokyo"
+        onTick: ->
+            d = new Date
+            min = d.getMinutes()
+            sec = d.getSeconds()
+            message = "#{sec}secなう！"
+            robot.send {user:{user:'XXXXX'},screen_name:'XXXXX', room: 'Twitter'}, "#{sec}秒なう！"
+    )

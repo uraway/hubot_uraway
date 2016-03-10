@@ -16,14 +16,14 @@ module.exports = (robot) ->
   robot.respond /かきくけこ/i, (msg) ->
     msg.send "こんばんわ！"
 
-  robot.respond /start job/i, (msg) ->
-    msg.send "Start job.."
-    job.start()
+  robot.respond /I am (.*)/i, (msg) ->
+    msg.send "Hi, #{msg.match[1]}"
 
-  robot.respond /stop job/i, (msg) ->
-    msg.send "Stop job.."
-    job.stop()
+  robot.respond /おみくじ/i, (msg) ->
+    msg.send msg.random ["大吉", "中吉", "小吉", "凶"]
 
+  robot.hear /疲れた/i, (msg) ->
+    msg.send "頑張って"
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
