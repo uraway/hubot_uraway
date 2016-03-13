@@ -1,5 +1,15 @@
 cronJob = require('cron').CronJob
 MarkovChain = require 'markov-chain-mecab'
+kuromoji = require 'kuromoji'
+
+class Tokenizer
+  constructor: ->
+    kuromoji
+      .builder(dicPath: 'node_modules/kuromoji/dist/dict/')
+      .build (err, tokenizer) => @_tokenizer = tokenizer
+
+  tokenize: (text, cd) ->
+    if @_tokenizer then cb @_tokenizer.tokenize text
 
 Twit = require 'twit'
 client = new Twit({
@@ -13,7 +23,7 @@ items = null
 
 module.exports = (robot) ->
   cronjob = new cronJob(
-    cronTime: "00 00 * * * *"
+    cronTime: "00,10,20,3040,50 00 * * * *"
     start:    true
     timeZone: "Asia/Tokyo"
     onTick: ->
@@ -24,6 +34,10 @@ module.exports = (robot) ->
     start:    true
     timeZone: "Asia/Tokyo"
     onTick: ->
+      tokenizer = new Tokenizer()
+      tokenizer.tokenize "すもももももももものうち", (tokens) ->
+        robot.send {room: 'Twitter'}, "#{tokens}"
+      ###
       markov = null
       client.get 'statuses/home_timeline', {count: 200}, (err, tweets, response) =>
         if !err
@@ -40,4 +54,5 @@ module.exports = (robot) ->
           )
         else
           console.log err
+        ###
   )
