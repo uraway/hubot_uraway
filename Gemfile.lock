@@ -1,0 +1,12 @@
+GEM
+  specs:
+    mecab (0.996)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  mecab (~> 0.996)
+
+BUNDLED WITH
+   1.11.2

@@ -20,7 +20,7 @@ module.exports = (robot) ->
       items = null
   )
   cronjob = new cronJob(
-    cronTime: "00 10,30,50 * * * *"
+    cronTime: "00 00,10,20,30,40,50 * * * *"
     start:    true
     timeZone: "Asia/Tokyo"
     onTick: ->
@@ -36,6 +36,7 @@ module.exports = (robot) ->
           markov = new MarkovChain(items)
           markov.start(5, (output) =>
             robot.send {room:'Twitter'}, "#{output}"
+            console.log output
           )
         else
           console.log err
