@@ -1,5 +1,5 @@
 {
-  "name": "hubot-test",
+  "name": "hubot-uraway",
   "version": "0.0.0",
   "private": true,
   "author": "uraway <masato.u0107@gmail.com>",
@@ -19,8 +19,11 @@
     "hubot-scripts": "^2.16.2",
     "hubot-shipit": "^0.2.0",
     "hubot-twitter-userstream": "0.0.3",
+    "markov-chain-kuromoji": "^1.0.0",
     "moment": "^2.12.0",
     "time": "^0.11.0",
+    "twit": "^2.2.3",
+    "twitter": "^1.2.5",
     "zaif.jp": "^0.1.4"
   },
   "engines": {
