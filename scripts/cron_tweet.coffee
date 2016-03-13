@@ -15,7 +15,7 @@ module.exports = (robot) ->
     start:    true
     timeZone: "Asia/Tokyo"
     onTick: ->
-      client.get 'statuses/home_timeline', {count: 200}, (err, tweets, response) =>
+      client.get 'statuses/home_timeline', {count: 100}, (err, tweets, response) =>
         if !err
           input = null
           for i in tweets
