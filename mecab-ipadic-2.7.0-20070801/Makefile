@@ -16,7 +16,7 @@ SHELL = /bin/sh
 srcdir = .
 top_srcdir = .
 
-prefix = /usr/local
+prefix = /usr/local/mecab/
 exec_prefix = ${prefix}
 
 bindir = ${exec_prefix}/bin
@@ -65,19 +65,19 @@ HAVE_LIB = @HAVE_LIB@
 LIB = @LIB@
 LTLIB = @LTLIB@
 MAKEINFO = makeinfo
-MECAB_CONFIG = /usr/local/bin/mecab-config
-MECAB_DICDIR = /usr/local/lib/mecab/dic/ipadic
-MECAB_DICT_INDEX = /usr/local/libexec/mecab/mecab-dict-index
+MECAB_CONFIG = /usr/local/mecab/bin/mecab-config
+MECAB_DICDIR = /ipadic
+MECAB_DICT_INDEX = /mecab-dict-index
 MECAB_GENDATA = matrix.bin char.bin sys.dic unk.dic
 MECAB_LEXICAL_DIC = Adj.csv Adnominal.csv Adverb.csv Auxil.csv Conjunction.csv Filler.csv Interjection.csv Noun.adjv.csv Noun.adverbal.csv Noun.csv Noun.demonst.csv Noun.nai.csv Noun.name.csv Noun.number.csv Noun.org.csv Noun.others.csv Noun.place.csv Noun.proper.csv Noun.verbal.csv Others.csv Postp-col.csv Postp.csv Prefix.csv Suffix.csv Symbol.csv Verb.csv
-MECAB_MECABRC = /usr/local/etc/mecabrc
+MECAB_MECABRC = /mecabrc
 MECAB_PREDATA = char.def feature.def left-id.def matrix.def pos-id.def rewrite.def right-id.def unk.def dicrc
 PACKAGE = mecab-ipadic
 VERSION = 2.7.0-20070801
 datarootdir = ${prefix}/share
 
-mecab_dict_index = /usr/local/libexec/mecab/mecab-dict-index
-dicdir = /usr/local/lib/mecab/dic/ipadic
+mecab_dict_index = /mecab-dict-index
+dicdir = /ipadic
 
 # SUBDIRS    = doc script
 dic_DATA = matrix.bin char.bin sys.dic unk.dic left-id.def right-id.def rewrite.def pos-id.def dicrc
@@ -251,7 +251,7 @@ maintainer-clean-generic clean mostlyclean distclean maintainer-clean
 
 matrix.bin char.bin sys.dic unk.dic:
 	$(mecab_dict_index) -d . -o . -f EUC-JP -t utf8
-	echo To enable dictionary, rewrite /usr/local/etc/mecabrc as \"dicrc = /usr/local/lib/mecab/dic/ipadic\"
+	echo To enable dictionary, rewrite /mecabrc as \"dicrc = /ipadic\"
 
 rpm: dist
 	rpm -ta mecab-ipadic-2.7.0-20070801.tar.gz

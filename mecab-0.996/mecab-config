@@ -1,6 +1,6 @@
 #!/bin/sh
 
-prefix=/usr/local
+prefix=/usr/local/mecab
 exec_prefix=${prefix}
 exec_prefix_set=no
 
@@ -107,7 +107,7 @@ while test $# -gt 0; do
 	;;
 
     --libexecdir)
-       	echo /usr/local/libexec/mecab
+       	echo /usr/local/mecab/libexec/mecab
        	;;
 	
     --sysconfdir)
