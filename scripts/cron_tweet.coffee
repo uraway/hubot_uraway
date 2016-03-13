@@ -1,5 +1,4 @@
 cronJob = require('cron').CronJob
-MarkovChain = require 'markov-chain-mecab'
 kuromoji = require 'kuromoji'
 
 class Tokenizer
@@ -37,6 +36,7 @@ module.exports = (robot) ->
       tokenizer = new Tokenizer()
       tokenizer.tokenize "すもももももももものうち", (tokens) ->
         robot.send {room: 'Twitter'}, "#{tokens}"
+        console.log tokens
       ###
       markov = null
       client.get 'statuses/home_timeline', {count: 200}, (err, tweets, response) =>
