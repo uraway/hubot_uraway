@@ -1,2 +1,2 @@
 source 'https://rubygems.org'
-gem 'mecab', '~> 0.996'
+gem 'mecab', '0.996'
