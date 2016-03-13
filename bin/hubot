@@ -4,8 +4,8 @@ set -e
 
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
-export PATH="mecab-0.996/configure:$PATH"
-export PATH="mecab-ipadic-2.7.0-20070801/configure:$PATH"
+
+export PATH="mecab-0.996/mecab-config:$PATH"
 HEROKU_MECAB_PATH="/app/vendor/mecab/bin"
 if [ -d $HEROKU_MECAB_PATH ]; then
   export PATH="$HEROKU_MECAB_PATH:$PATH"
