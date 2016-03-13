@@ -1,5 +1,5 @@
 cronJob = require('cron').CronJob
-MarkovChain = require 'markov-chain-kuromoji'
+MarkovChain = require 'markov-chain-mecab'
 
 Twit = require 'twit'
 client = new Twit({
