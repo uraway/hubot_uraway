@@ -15,7 +15,7 @@ module.exports = (robot) ->
     start:    true
     timeZone: "Asia/Tokyo"
     onTick: ->
-      client.get 'statuses/home_timeline', {count: 100}, (err, tweets, response) =>
+      client.get 'statuses/home_timeline', {count: 200}, (err, tweets, response) =>
         if !err
           input = null
           for i in tweets
@@ -23,11 +23,9 @@ module.exports = (robot) ->
           input = input.replace /(https?:\/\/[\x21-\x7e]+)/g, ''
           input = input.replace /(@[\x21-\x7e]+)/g, ''
           input = input.replace /\s*/g, ''
-          console.log(input)
           markov = new MarkovChain(input)
           markov.start(1, (output) =>
             robot.send {room:'Twitter'}, "#{output}"
-            console.log(output);
           )
         else
           console.log err
