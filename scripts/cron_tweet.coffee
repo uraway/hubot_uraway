@@ -1,5 +1,5 @@
 cronJob = require('cron').CronJob
-MarkovChain = require('markov-chain-mecabapi')
+MarkovChain = require('markov-chain-kuromoji')
 
 Twit = require 'twit'
 client = new Twit({
@@ -11,7 +11,7 @@ client = new Twit({
 
 module.exports = (robot) ->
   cronjob = new cronJob(
-    cronTime: "00 00,10,20,30,40,50 * * * *"
+    cronTime: "00,10,20,30,40,50 * * * * *"
     start:    true
     timeZone: "Asia/Tokyo"
     onTick: ->
@@ -27,6 +27,7 @@ module.exports = (robot) ->
           markov = new MarkovChain(input)
           markov.start(1, (output) =>
             robot.send {room:'Twitter'}, "#{output}"
+            console.log(output);
           )
         else
           console.log err

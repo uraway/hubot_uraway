@@ -5,10 +5,4 @@ set -e
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
-export PATH="mecab-0.996/mecab-config:$PATH"
-HEROKU_MECAB_PATH="/app/vendor/mecab/bin"
-if [ -d $HEROKU_MECAB_PATH ]; then
-  export PATH="$HEROKU_MECAB_PATH:$PATH"
-fi
-
 exec node_modules/.bin/hubot --name "hubot_uraway" "$@"
