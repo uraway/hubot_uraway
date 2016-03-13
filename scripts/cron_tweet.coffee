@@ -11,7 +11,7 @@ client = new Twit({
 
 module.exports = (robot) ->
   cronjob = new cronJob(
-    cronTime: "00 00,10,20,30,40,50 * * * * *"
+    cronTime: "00 00,10,20,30,40,50 * * * *"
     start:    true
     timeZone: "Asia/Tokyo"
     onTick: ->
