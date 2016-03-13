@@ -13,14 +13,14 @@ items = null
 
 module.exports = (robot) ->
   cronjob = new cronJob(
-    cronTime: "00 00,30 * * * * *"
+    cronTime: "00 00,30 * * * *"
     start:    true
     timeZone: "Asia/Tokyo"
     onTick: ->
       items = null
   )
   cronjob = new cronJob(
-    cronTime: "00 00,10,20,30,40,50 * * * * *"
+    cronTime: "00 10,30,50 * * * *"
     start:    true
     timeZone: "Asia/Tokyo"
     onTick: ->
@@ -34,7 +34,7 @@ module.exports = (robot) ->
           input = input.replace /(@[\x21-\x7e]+)/g, ''
           items += input
           markov = new MarkovChain(items)
-          markov.start(3, (output) =>
+          markov.start(5, (output) =>
             robot.send {room:'Twitter'}, "#{output}"
           )
         else
