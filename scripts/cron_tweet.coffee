@@ -20,6 +20,7 @@ module.exports = (robot) ->
           input = null
           for i in tweets
             input += "#{i.text}。"
+          input = input.replace /。。/g, '。'
           input = input.replace /(https?:\/\/[\x21-\x7e]+)/g, ''
           input = input.replace /(@[\x21-\x7e]+)/g, ''
           input = input.replace /\s*/g, ''
