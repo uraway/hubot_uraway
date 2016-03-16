@@ -26,6 +26,7 @@ module.exports = (robot) ->
           input = input.replace /\s*/g, ''
           markov = new MarkovChain(input)
           markov.start(1, (output) =>
+            output = output.replace /。/g, ''
             robot.send {room:'Twitter'}, "#{output}"
           )
         else
